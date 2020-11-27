@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: capstone-service
+  namespace: capstone
+  annotations:
+    # Note that the backend talks over HTTP.
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+spec:
+  selector:
+    app: capstone
+  ports:
+  - protocol: TCP
+    name: http
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
+
