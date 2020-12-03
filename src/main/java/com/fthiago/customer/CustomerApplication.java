@@ -17,7 +17,7 @@ public class CustomerApplication {
 
     @GetMapping("/hello")
     public ResponseEntity<String> getHello() {
-        return new ResponseEntity<String>("Hello World!!! Fenrir is at the GATE!", HttpStatus.OK);
+        return new ResponseEntity<String>("Hello World !!! This is Green deployment", HttpStatus.OK);
     }
 
 

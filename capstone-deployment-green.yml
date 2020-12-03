@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: capstone
+  name: capstone-green
   namespace: capstone
   labels:
-    app: capstone
+    app: capstone-green
 spec:
   replicas: 3
   strategy:
@@ -14,14 +14,14 @@ spec:
       maxSurge: 1
   selector:
     matchLabels:
-      app: capstone
+      app: capstone-green
   template:
     metadata:
       labels:
-        app: capstone
+        app: capstone-green
     spec:
       containers:
-        - name: capstone
+        - name: capstone-green
           image: 813213957333.dkr.ecr.us-west-2.amazonaws.com/capstone:latest
           ports:
             - containerPort: 8080

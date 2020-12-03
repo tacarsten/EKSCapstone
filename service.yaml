@@ -8,7 +8,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
 spec:
   selector:
-    app: capstone
+    app: capstone-DEPLOYMENT
   ports:
   - protocol: TCP
     name: http

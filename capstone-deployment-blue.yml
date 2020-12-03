@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: capstone
+  name: capstone-blue
   namespace: capstone
   labels:
-    app: capstone
+    app: capstone-blue
 spec:
   replicas: 3
   strategy:
@@ -14,11 +14,11 @@ spec:
       maxSurge: 1
   selector:
     matchLabels:
-      app: capstone
+      app: capstone-blue
   template:
     metadata:
       labels:
-        app: capstone
+        app: capstone-blue
     spec:
       containers:
         - name: capstone
