@@ -1,0 +1,89 @@
+root@ip-172-31-39-40:/home/ubuntu# date
+Fri Dec  4 17:37:08 UTC 2020
+root@ip-172-31-39-40:/home/ubuntu#
+root@ip-172-31-39-40:/home/ubuntu# !
+root@ip-172-31-39-40:/home/ubuntu# uname -a
+Linux ip-172-31-39-40 5.4.0-1029-aws #30~18.04.1-Ubuntu SMP Tue Oct 20 11:09:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+root@ip-172-31-39-40:/home/ubuntu#
+root@ip-172-31-39-40:/home/ubuntu# !
+root@ip-172-31-39-40:/home/ubuntu# kubectl get deployments -n capstone
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+capstone-blue    3/3     3            3           42h
+capstone-green   3/3     3            3           41h
+root@ip-172-31-39-40:/home/ubuntu#
+root@ip-172-31-39-40:/home/ubuntu# !
+root@ip-172-31-39-40:/home/ubuntu# kubectl describe deployments -n capstone
+Name:                   capstone-blue
+Namespace:              capstone
+CreationTimestamp:      Wed, 02 Dec 2020 23:29:26 +0000
+Labels:                 app=capstone-blue
+Annotations:            deployment.kubernetes.io/revision: 2
+Selector:               app=capstone-blue
+Replicas:               3 desired | 3 updated | 3 total | 3 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  1 max unavailable, 1 max surge
+Pod Template:
+  Labels:  app=capstone-blue
+  Containers:
+   capstone:
+    Image:        813213957333.dkr.ecr.us-west-2.amazonaws.com/capstone:blue-27
+    Port:         8080/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   capstone-blue-745bcfcc87 (3/3 replicas created)
+Events:          <none>
+
+
+Name:                   capstone-green
+Namespace:              capstone
+CreationTimestamp:      Thu, 03 Dec 2020 00:24:03 +0000
+Labels:                 app=capstone-green
+Annotations:            deployment.kubernetes.io/revision: 3
+Selector:               app=capstone-green
+Replicas:               3 desired | 3 updated | 3 total | 3 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  1 max unavailable, 1 max surge
+Pod Template:
+  Labels:  app=capstone-green
+  Containers:
+   capstone-green:
+    Image:        813213957333.dkr.ecr.us-west-2.amazonaws.com/capstone:green-28
+    Port:         8080/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   capstone-green-5c4d54f754 (3/3 replicas created)
+Events:          <none>
+root@ip-172-31-39-40:/home/ubuntu#
+root@ip-172-31-39-40:/home/ubuntu# !
+root@ip-172-31-39-40:/home/ubuntu# kubectl get pods -n capstone
+NAME                              READY   STATUS    RESTARTS   AGE
+capstone-blue-745bcfcc87-9889h    1/1     Running   0          41h
+capstone-blue-745bcfcc87-f9fkm    1/1     Running   0          41h
+capstone-blue-745bcfcc87-ncjsc    1/1     Running   0          41h
+capstone-green-5c4d54f754-6zmjs   1/1     Running   0          25h
+capstone-green-5c4d54f754-dcrs5   1/1     Running   0          25h
+capstone-green-5c4d54f754-r9zlg   1/1     Running   0          25h
+root@ip-172-31-39-40:/home/ubuntu#
+root@ip-172-31-39-40:/home/ubuntu# !
+root@ip-172-31-39-40:/home/ubuntu# kubectl get svc -n capstone
+NAME               TYPE           CLUSTER-IP    EXTERNAL-IP                                                              PORT(S)        AGE
+capstone-service   LoadBalancer   10.100.72.0   a0bff960d5b47429fb4b28894d3308f2-126931079.us-west-2.elb.amazonaws.com   80:32316/TCP   12d
+root@ip-172-31-39-40:/home/ubuntu#
