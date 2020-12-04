@@ -1,4 +1,4 @@
-# Various thoughts on the resubmission of the EKSCapstone project.  
+# Various thoughts on resubmitting this EKSCapstone project.  
 
 There are two new screeenshots that demonstrate both linting success and failure against the Dockerfile.  There are named (sensibly enough) hadolintFail.jpg and hadolintSuccess.jpg.  
 https://github.com/tacarsten/EKSCapstone/blob/main/hadolintFail.JPG
