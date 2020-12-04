@@ -1,13 +1,16 @@
-# eks-capstone
+# Various thought on the resubmission of the EKSCapstone project.  
 
-linting-1.JPG and linting-2.JPG images show failed liniting for Dockerfile.
+There are two new screeenshots that demonstrate both linting success and failure against the Dockerfile.  There are named (sensibly enough) hadolintFail.jpg and hadolintSuccess.jpg.  
+https://github.com/tacarsten/EKSCapstone/blob/main/hadolintFail.JPG
+https://github.com/tacarsten/EKSCapstone/blob/main/hadolintSuccess.JPG
 
-EKS cluster is created using Cloudformation and the cloudformation scripts are under the Cloudformation directory.
+The EKS cluster was created using AWS Cloudformation.   The code used to accomplish this is now in the "Cloudformation" directory.
+https://github.com/tacarsten/EKSCapstone/tree/main/Cloudformation
 
-There are two deployment yaml files created. One each for blue and green deployment. Both deployments happen under the same EKS namespace but with different app names. 
+The deployment type has been changed from "Rolling" to "Blue/Green".  Thusly, there are two new deployment yaml files, one each for blue and green. Both deployments occur within the same EKS namespace but with different application names. 
 
-The service resource is created using service.yaml. This yaml file is used in Jenkins deploy stage. Loadbalancer service routes based on the selector in service.yaml.
+The service resource is created using service.yaml. This yaml file is used in Jenkins deploy stage. The loadbalancer service routes based on the selector in service.yaml.
 
-Jenkins pipeline takes input of the deployment type i.e. blue or green. Based on the input deployment file is selected and used in the deploy stage. This parameter is also modified in service.yaml so that it updates the extenal endpoint to point to latest deployment.
+The Jenkins pipeline now takes an input of the deployment type (blue or green). Based on the input, the proper deployment file is selected and used in the deploy stage. This parameter is also modified in service.yaml so that it updates the extenal endpoint so that it refers to the latest deployment.
 
-blue-green-deployment.JPG image shows the blue/green pods running under the capstone namespace. Image also shows the description of service which uses selector to forward traffic to apps.
+The file blue-green-deployment.jpg shows the blue/green pods running under the capstone namespace. This image also shows the description of service which uses the selector to forward traffic to apps.
