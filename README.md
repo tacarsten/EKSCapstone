@@ -1,11 +1,12 @@
 # Various thoughts on resubmitting this EKSCapstone project.  
 
-There are two new screeenshots that demonstrate both linting success and failure against the Dockerfile.  There are named (sensibly enough) hadolintFail.jpg and hadolintSuccess.jpg.  
+There are two new screeenshots that demonstrate both linting success and failure against the Dockerfile.  These are named (sensibly enough) hadolintFail.jpg and hadolintSuccess.jpg.  
 https://github.com/tacarsten/EKSCapstone/blob/main/hadolintFail.JPG
 https://github.com/tacarsten/EKSCapstone/blob/main/hadolintSuccess.JPG
 
-The EKS cluster was created using AWS Cloudformation.   The code used to accomplish this is now in the "Cloudformation" directory.
+The EKS cluster was created using AWS Cloudformation.   The code used to accomplish this is now in the "Cloudformation" directory. I find I fight less with .json formatting over .yaml.  So it is .json throughout.  
 https://github.com/tacarsten/EKSCapstone/tree/main/Cloudformation
+
 
 The deployment type has been changed from "Rolling" to "Blue/Green".  Thusly, there are two new deployment yaml files, one each for blue and green. Both deployments occur within the same EKS namespace but with different application names. 
 
