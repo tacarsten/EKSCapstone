@@ -17,11 +17,13 @@ https://github.com/tacarsten/EKSCapstone/blob/main/service.yaml
 The Jenkins pipeline now takes an input of the deployment type (blue or green). Based on the input, the proper deployment file is selected and used in the deploy stage. This parameter is also modified in service.yaml so that it updates the extenal endpoint so that it refers to the latest deployment.
 https://github.com/tacarsten/EKSCapstone/blob/main/JenkinsReceivesParameter.jpg
 
-The file blue-green-deployment.jpg shows the blue/green pods running under the capstone namespace. This image also shows the description of service which uses the selector to forward traffic to apps.
-https://github.com/tacarsten/EKSCapstone/blob/main/blue-green-deployment.JPG
 
-There is a more thorough look at what's going on with kubernetes in the following file:  
-https://github.com/tacarsten/EKSCapstone/blob/main/KubernetesOutputs.txt
+The file eks-nodes-1.JPG shows the EKS nodes running as two completely seperate EC2 instances in AWS:
+https://github.com/tacarsten/EKSCapstone/blob/main/eks-nodes-1.JPG
 
-Lastly, as things stand right this minute, the K8 green deployment is live right now.  There is a little marker left right in the HTML as to which is being served up.  This can be verified with the following URL:
+The file eks-nodes-2.JPG shows the K8 pods running on separate EC2 nodes. Note especially the "nodes" field on the far right: 
+https://github.com/tacarsten/EKSCapstone/blob/main/eks-nodes-2.JPG
+
+Lastly, the K8 deployment is actually live right now.
+This can be verified with the following URL:
 http://a0bff960d5b47429fb4b28894d3308f2-126931079.us-west-2.elb.amazonaws.com/hello
