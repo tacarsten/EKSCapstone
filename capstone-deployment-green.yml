@@ -25,3 +25,5 @@ spec:
           image: 813213957333.dkr.ecr.us-west-2.amazonaws.com/capstone:latest
           ports:
             - containerPort: 8080
+      nodeSelector:
+        deploy: green
